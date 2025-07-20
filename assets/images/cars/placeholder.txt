@@ -1,0 +1,21 @@
+This file is a placeholder to indicate that actual car images would be placed in this directory.
+
+In a real application, you would replace the following placeholder image paths with actual image files:
+
+- toyota_yaris_1.png, toyota_yaris_2.png, toyota_yaris_3.png
+- honda_fit_1.png, honda_fit_2.png
+- nissan_versa_1.png, nissan_versa_2.png
+- honda_civic_1.png, honda_civic_2.png, honda_civic_3.png
+- toyota_corolla_1.png, toyota_corolla_2.png
+- toyota_camry_1.png, toyota_camry_2.png, toyota_camry_3.png
+- honda_accord_1.png, honda_accord_2.png
+- toyota_rav4_1.png, toyota_rav4_2.png, toyota_rav4_3.png
+- honda_crv_1.png, honda_crv_2.png
+- ford_explorer_1.png, ford_explorer_2.png
+- bmw_3series_1.png, bmw_3series_2.png, bmw_3series_3.png
+- mercedes_cclass_1.png, mercedes_cclass_2.png
+- tesla_model3_1.png, tesla_model3_2.png, tesla_model3_3.png
+- nissan_leaf_1.png, nissan_leaf_2.png
+- toyota_prius_1.png, toyota_prius_2.png
+
+For development purposes, you can create a single placeholder image and rename it to match these paths.
