@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:car_booking_app/utils/image_utils.dart';
 
 /// Widget that displays a carousel of car images
 class CarImageCarousel extends StatefulWidget {
@@ -100,12 +101,9 @@ class _CarImageCarouselState extends State<CarImageCarousel> {
       width: double.infinity,
       height: double.infinity,
       color: Colors.grey[200],
-      child: Image.asset(
-        imagePath,
+      child: ImageUtils.loadCarImage(
+        imagePath: imagePath,
         fit: BoxFit.cover,
-        errorBuilder: (context, error, stackTrace) {
-          return _buildPlaceholder();
-        },
       ),
     );
   }

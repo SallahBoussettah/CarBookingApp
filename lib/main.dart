@@ -3,10 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:car_booking_app/providers/car_provider.dart';
 import 'package:car_booking_app/providers/booking_provider.dart';
 import 'package:car_booking_app/providers/navigation_provider.dart';
+import 'package:car_booking_app/providers/user_provider.dart';
 import 'package:car_booking_app/routes/app_routes.dart';
 import 'package:car_booking_app/routes/app_router.dart';
 import 'package:car_booking_app/services/navigation_service.dart';
-// Force rebuild
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NavigationProvider()),
         ChangeNotifierProvider(create: (_) => CarProvider()),
         ChangeNotifierProvider(create: (_) => BookingProvider()),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
       child: MaterialApp(
         title: 'Car Booking App',

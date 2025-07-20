@@ -5,6 +5,7 @@ import 'package:car_booking_app/models/booking_status.dart';
 import 'package:car_booking_app/models/car.dart';
 import 'package:car_booking_app/providers/booking_provider.dart';
 import 'package:car_booking_app/providers/car_provider.dart';
+import 'package:car_booking_app/utils/image_utils.dart';
 import 'package:intl/intl.dart';
 
 /// Screen for displaying detailed booking information
@@ -273,23 +274,11 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
           // Car image
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-            child: Image.asset(
-              car.images.first,
+            child: ImageUtils.loadCarImage(
+              imagePath: car.images.first,
               width: double.infinity,
               height: 200,
               fit: BoxFit.cover,
-              errorBuilder: (context, error, stackTrace) {
-                return Container(
-                  width: double.infinity,
-                  height: 200,
-                  color: Colors.grey[300],
-                  child: const Icon(
-                    Icons.directions_car,
-                    size: 64,
-                    color: Colors.grey,
-                  ),
-                );
-              },
             ),
           ),
 
@@ -340,11 +329,11 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                       label: Text(feature),
                       backgroundColor: Theme.of(
                         context,
-                      ).colorScheme.primary.withOpacity(0.1),
+                      ).colorScheme.primary.withAlpha(26), // ~10% opacity
                       side: BorderSide(
                         color: Theme.of(
                           context,
-                        ).colorScheme.primary.withOpacity(0.2),
+                        ).colorScheme.primary.withAlpha(51), // ~20% opacity
                       ),
                     );
                   }).toList(),
@@ -418,7 +407,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                   decoration: BoxDecoration(
                     color: Theme.of(
                       context,
-                    ).colorScheme.primary.withOpacity(0.1),
+                    ).colorScheme.primary.withAlpha(26), // ~10% opacity
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(
@@ -469,7 +458,9 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withAlpha(26), // ~10% opacity
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(
@@ -561,9 +552,11 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.green.withOpacity(0.1),
+                    color: Colors.green.withAlpha(26), // ~10% opacity
                     borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.green.withOpacity(0.5)),
+                    border: Border.all(
+                      color: Colors.green.withAlpha(128),
+                    ), // ~50% opacity
                   ),
                   child: const Text(
                     'Paid',
@@ -633,9 +626,9 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: chipColor.withOpacity(0.1),
+        color: chipColor.withAlpha(26), // ~10% opacity
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: chipColor.withOpacity(0.5)),
+        border: Border.all(color: chipColor.withAlpha(128)), // ~50% opacity
       ),
       child: Text(
         status.displayName,

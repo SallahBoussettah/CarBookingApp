@@ -170,8 +170,8 @@ void main() {
 
     testWidgets('has a cancel button text for active bookings', (WidgetTester tester) async {
       // Use a smaller screen size to ensure the button is visible
-      tester.binding.window.physicalSizeTestValue = const Size(1080, 1920);
-      tester.binding.window.devicePixelRatioTestValue = 1.0;
+      tester.view.physicalSize = const Size(1080, 1920);
+      tester.view.devicePixelRatio = 1.0;
       
       await tester.pumpWidget(buildTestWidget(selectedCar: mockCar));
       
@@ -182,7 +182,10 @@ void main() {
       // and the way dialogs are shown in Flutter
       
       // Reset the screen size
-      addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
+      addTearDown(() {
+        tester.view.resetPhysicalSize();
+        tester.view.resetDevicePixelRatio();
+      });
     });
   });
 }
